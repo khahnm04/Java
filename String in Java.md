@@ -77,7 +77,7 @@
 >   ```
 
 ---
-## **2. Các phương thức xử lý chuỗi trong Java**
+## **3. Các phương thức xử lý chuỗi trong Java**
 > - Chú ý: String trong Java một khi đã khai báo bạn không thể thay đổi nó, vì thế các hàm của String đều trả về 1 xâu kí tự mới sau khi áp dụng các hàm
 > ### **lenght()**
 >> Dùng để lấy độ dài của chuỗi (Trả về số kí tự trong xâu)
@@ -111,48 +111,230 @@
 >>  2 8 t e c h  j a v a
 >>  ```
 >
-> ### **2.3. Chuyển đổi chữ hoa - chữ thường**
->> ```java
->> Character.toLowerCase(s.charAt(i));  // Chuyển ký tự thành chữ thường
->> Character.toUpperCase(s.charAt(i));  // Chuyển ký tự thành chữ hoa
->> s.toUpperCase();  // Trả về chuỗi viết hoa, không thay đổi chuỗi ban đầu
->> s.toLowerCase();  // Trả về chuỗi viết thường, không thay đổi chuỗi ban đầu
->> ```
->>
-> ### **2.4. Ghép nối và so sánh chuỗi**
->> ```java
->> s.concat(t);  // Nối chuỗi t vào chuỗi s
->>
->> s.compareTo(t); // So sánh hai chuỗi theo thứ tự từ điển
->> // Trả về 0 nếu bằng nhau, số âm nếu s < t, số dương nếu s > t
->>
->> s.compareToIgnoreCase(t); // So sánh nhưng không phân biệt hoa thường
->> ```
->>
-> ### **2.5. Cắt chuỗi con**
->> ```java
->> s.substring(x);     // Cắt chuỗi từ vị trí x đến hết
->> s.substring(x, y);  // Cắt chuỗi từ vị trí x đến y - 1
->> ```
->>
-> ### **2.6. Kiểm tra và tìm kiếm chuỗi con**
->> ```java
->> s.contains("...");   // Kiểm tra chuỗi con có tồn tại trong chuỗi không
->> s.indexOf(t);         // Vị trí đầu tiên của t trong s (nếu không có trả về -1)
->> ```
->>
-> ### **2.7. Xử lý khoảng trắng**
->> ```java
->> s.trim();  // Loại bỏ khoảng trắng ở đầu và cuối chuỗi
->> ```
->>
-> ### **2.8. Chuyển chuỗi thành mảng ký tự**
->> ```java
->> char[] arr = s.toCharArray();
->> for (char c : arr) {
->>     System.out.println(c);
+> ### **Character.isLowerCase(char c)**
+>>  Kiểm tra xem ký tự c có phải là chữ in thường hay không.
+>>  ```java
+>>  public class Main {
+>>    public static void main(String[] args) {
+>>        char c1 = 'a';
+>>        char c2 = 'A';
+>>        System.out.println(Character.isLowerCase(c1));
+>>        System.out.println(Character.isLowerCase(c2));
+>>    }
+>>  }
+>>  ```
+>>  Output:
+>>  ```
+>>  true
+>>  false
+>>  ```
+>
+> ### **Character.isUpperCase(char c)**
+>>  Kiểm tra xem ký tự c có phải là chữ in hoa hay không.
+>>  ```java
+>>  public class Main {
+>>    public static void main(String[] args) {
+>>        char c1 = 'a';
+>>        char c2 = 'A';
+>>        System.out.println(Character.isUpperCase(c1));
+>>        System.out.println(Character.isUpperCase(c2));
+>>    }
+>>  }
+>>  ```
+>>  Output:
+>>  ```
+>>  false
+>>  true
+>>  ```
+>
+> ### **Character.isAlphabetic(char c)**
+>>  Kiểm tra xem ký tự c có phải là chữ cái hay không.
+>>  ```java
+>>  public class Main {
+>>    public static void main(String[] args) {
+>>        char c1 = '@';
+>>        char c2 = 'a';
+>>        System.out.println(Character.isAlphabetic(c1));
+>>        System.out.println(Character.isAlphabetic(c2));
+>>    }
+>>  }
+>>  ```
+>>  Output:
+>>  ```
+>>  false
+>>  true
+>>  ```
+>
+> ### **Character.isDigit(char c)**
+>>  Kiểm tra xem ký tự c có phải là chữ số hay không.
+>>  ```java
+>>  public class Main {
+>>    public static void main(String[] args) {
+>>        char c1 = '1';
+>>        char c2 = 'a';
+>>        System.out.println(Character.isDigit(c1));
+>>        System.out.println(Character.isDigit(c2));
+>>    }
+>>  }
+>>  ```
+>>  Output:
+>>  ```
+>>  true
+>>  false
+>>  ```
+>
+> ### **Character.toLowerCase(char c)**
+>>  Chuyển ký tự c thành chữ in thường (nếu nó là chữ in hoa), còn nếu c đã là chữ in thường hoặc không phải chữ cái thì giữ nguyên.
+>>  ```java
+>>  public class Main {
+>>     public static void main(String[] args) {
+>>         char c1 = 'A';
+>>         char c2 = 'b';
+>>         char c3 = '1';
+>>         System.out.println(Character.toLowerCase(c1));
+>>         System.out.println(Character.toLowerCase(c2));
+>>         System.out.println(Character.toLowerCase(c3));
+>>    }
+>>  }
+>>  ```
+>>  Output:
+>>  ```
+>>  a
+>>  b
+>>  1
+>>  ```
+>
+> ### **Character.toUpperCase(char c)**
+>>  Chuyển ký tự c thành chữ in hoa (nếu nó là chữ in thường), còn nếu c đã là chữ in hoa hoặc không phải chữ cái thì giữ nguyên.
+>>  ```java
+>>  public class Main {
+>>    public static void main(String[] args) {
+>>         char c1 = 'a';
+>>         char c2 = 'B';
+>>         char c3 = '1';
+>>         System.out.println(Character.toUpperCase(c1));
+>>         System.out.println(Character.toUpperCase(c2));
+>>         System.out.println(Character.toUpperCase(c3));
+>>    }
+>>  }
+>>  ```
+>>  Output:
+>>  ```
+>>  A
+>>  B
+>>  1
+>>  ```
+>
+> ### **toUpperCase()**
+>>  Trả về xâu ở dạng in hoa, hàm này không thay đổi xâu ban đầu
+>>  ```java
+>>  public class Main {
+>>     public static void main(String[] args) {
+>>         String s = "java core";
+>>         String t = s.toUpperCase();
+>>         System.out.println(s);
+>>         System.out.println(t);
+>>    }
+>>  }
+>>  ```
+>>  Output:
+>>  ```
+>>  java core
+>>  JAVA CORE
+>>  ```
+>
+> ### **toLowerCase()**
+>>  Trả về xâu ở dạng in thường, hàm này không thay đổi xâu ban đầu
+>>  ```java
+>>  public class Main {
+>>     public static void main(String[] args) {
+>>         String s = "JAVA CORE";
+>>         String t = s.toLowerCase();
+>>         System.out.println(s);
+>>         System.out.println(t);
+>>    }
+>>  }
+>>  ```
+>>  Output:
+>>  ```
+>>  JAVA CORE
+>>  java core
+>>  ```
+>
+> ### **concat()**
+>>  nối xâu kí tự khác vào cuối xâu hiện tại, bạn có thể sử dụng toán tử + để làm chức năng tương tự
+>>  ```java
+>>  public class Main {
+>>    public static void main(String[] args) {
+>>      String s = "java ";
+>>      String t = "colection ";
+>>      String st = s.concat(t);
+>>      String ts = t + s;
+>>      System.out.println(st);
+>>      System.out.println(ts);
+>>    }
+>>  }
+>>  ```
+>>  Output:
+>>  ```
+>>  java colection
+>>  colection java
+>>  ```
+>
+>> ### **compareTo()**
+>>  So sánh 2 xâu theo thứ tự từ điển, nếu 2 xâu bằng nhau trả về 0, trả về số âm nếu xâu hiện tại nhỏ hơn xâu cần so sánh, ngược lại trả về số dương.
+>>  ```java
+>> public class Main {
+>>   public static void main(String[] args) {
+>>     String s = "java core";
+>>     String t = "java CORE";
+>>     System.out.println(s.compareTo(t));
+>>   }
 >> }
->> ```
+>>  ```
+>>  Output:
+>>  ```
+>>  32
+>>  ```
+>
+>> ### **compareToIgnoreCase()**
+>>  Bỏ qua in hoa in thường khi so sánh.
+>>  ```java
+>> public class Main {
+>>   public static void main(String[] args) {
+>>     String s = "java core";
+>>     String t = "java CORE";
+>>     System.out.println(s.compareToIgnoreCase(t));
+>>   }
+>> }
+>>  ```
+>>  Output:
+>>  ```
+>>  0
+>>  ```
+>
+>> ### **substring() & subSequence()**
+>>  Dùng để cắt một chuỗi con từ begin_index đến end_index - 1 (nếu có 2 tham số truyền vào), cắt một chuỗi con từ begin_index đến hết chuối (nếu có 1 tham số truyền vào)
+>>  ```java
+>>  public class Main {
+>>    public static void main(String[] args) {
+>>      String s = "java 28tech";
+>>      System.out.println(s.substring(5));
+>>      System.out.println(s.substring(5, 7));
+>>      System.out.println(s.subSequence(5, 7));
+>>    }
+>>  }
+>>  ```
+>>  Output:
+>>  ```
+>>  28tech
+>>  28
+>>  28
+>>  ```
+>>  - substring(5, 7) trả về một String.
+>>  - subSequence(5, 7) trả về một CharSequence (là một interface, String cũng là một kiểu CharSequence).
+>>  - Tuy nhiên, vì String cũng là một CharSequence, nên khi in ra màn hình, cả hai đều hiển thị cùng một kết quả.
+>
 
 ---
 ## **3. Tách từ trong chuỗi: split & StringTokenizer**
