@@ -18,9 +18,9 @@
 > - Ví dụ
 >   ```java
 >   public class Main {
->     public static void main(String[] args) {
->     String s = "28tech java";
->     System.out.println(s);
+>       public static void main(String[] args) {
+>       String s = "28tech java";
+>       System.out.println(s);
 >   }
 >   ```
 > - Có 2 cách khởi tạo (Initialization) trong Java
@@ -42,21 +42,21 @@
 > - Ví dụ:
 >   ```java
 >   public class Main {
->     public static void main(String[] args) {
->       Scanner sc = new Scanner("System.in");
->       String s = sc.nextLine();
->       System.out.println(s);
->     }
+>       public static void main(String[] args) {
+>           Scanner sc = new Scanner("System.in");
+>           String s = sc.nextLine();
+>           System.out.println(s);
+>       }
 >   }
 >   ```
 > - Khi dùng nextLine(), bản chất cách hoạt động của nextLine() sẽ dừng nhập tới khi gặp dấu xuống dòng, vì thế hãy đảm bảo trước khi nhập nextLine(), trong bộ đệm bàn phím không còn thừa dấu enter do các hàm như nextInt(), nextLong()… để lại từ câu lệnh nhập trước
 > - Tình huống xảy ra trôi lệnh:
 >   ```java
 >   public static void main(String[] args) {
->     Scanner sc = new Scanner("System.in");
->     int n = sc.nextInt();
->     String s = sc.nextLine();
->     System.out.println(s);
+>       Scanner sc = new Scanner("System.in");
+>       int n = sc.nextInt();
+>       String s = sc.nextLine();
+>       System.out.println(s);
 >   }
 >   ```
 >   Output:
