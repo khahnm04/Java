@@ -70,7 +70,7 @@ for (char c : arr) {
 ```
 
 ---
-## **3. Tách từ trong chuỗi: split & StringTokenizer**
+## **3. Tách từ trong chuỗi**
 
 ### **3.1. Dùng `split()`**
 ```java
