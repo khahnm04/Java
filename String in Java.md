@@ -1,4 +1,4 @@
-# **String trong Java**
+# **String**
 
 ## **1. Giới thiệu về lớp String trong Java**
 > - String là lớp để xử lý xâu kí tự trong ngôn ngữ lập trình Java. Các bạn có thể nghĩ String như một mảng kí tự nhưng có thể mở rộng, thu hẹp và hỗ trợ rất nhiều hàm xử lý xâu thông dụng.
