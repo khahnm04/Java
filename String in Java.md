@@ -37,31 +37,80 @@
 >     Chuỗi này sẽ được lưu trong __heap memory__ thay vì String Pool.
 
 ## **2. Nhập xuất String**
-> Trong Java, String là một đối tượng bất biến (immutable), có nghĩa là một khi giá trị của nó được tạo ra, nó không thể thay đổi.
+> - Để nhập xâu kí tự ta sử dụng hàm nextLine(), hàm này sẽ đọc tới khi gặp kí tự xuống dòng.
 >
-> Ví dụ:
-> ```java
-> String s = "Hello world";
-> String t = " Java Core";
-> ```
-> Chuỗi `s` và `t` không thể thay đổi giá trị sau khi được gán.
+> - Ví dụ:
+>   ```java
+>   public class Main {
+>     public static void main(String[] args) {
+>       Scanner sc = new Scanner("System.in");
+>       String s = sc.nextLine();
+>       System.out.println(s);
+>     }
+>   }
+>   ```
+> - Khi dùng nextLine(), bản chất cách hoạt động của nextLine() sẽ dừng nhập tới khi gặp dấu xuống dòng, vì thế hãy đảm bảo trước khi nhập nextLine(), trong bộ đệm bàn phím không còn thừa dấu enter do các hàm như nextInt(), nextLong()… để lại từ câu lệnh nhập trước
+> - Tình huống xảy ra trôi lệnh:
+>   ```java
+>   public static void main(String[] args) {
+>     Scanner sc = new Scanner("System.in");
+>     int n = sc.nextInt();
+>     String s = sc.nextLine();
+>     System.out.println(s);
+>   }
+>   ```
+>   Output:
+>   ```
+>   Rỗng
+>   ```
+>    
+> - Cách xử lý: Hãy nhớ rằng không phải cứ trước nextLine() là bạn cần xóa bộ đệm, bao giờ trước nextLine() mà có câu lệnh khác nextLine() như nextInt(), nextLong().. thì mới cần phải xóa bộ đệm. Các bạn xóa đi phím enter trong bộ đệm bằng câu lệnh nextLine().
+> - Xử lí trôi lệnh:
+>   ```java
+>   public static void main(String[] args) {
+>     Scanner sc = new Scanner("System.in");
+>     int n = sc.nextInt();
+>     sc.nextLine(); // Đọc phím enter thừa
+>     String s = sc.nextLine();
+>     System.out.println(s);
+>   }
+>   ```
 
 ---
 ## **2. Các phương thức xử lý chuỗi trong Java**
-> ### **2.1. Lấy thông tin về chuỗi**
->> ```java
->> s.length();          // Trả về số ký tự trong chuỗi
->> s.charAt(i);         // Trả về ký tự tại vị trí i
->> ```
->>
-> ### **2.2. Kiểm tra ký tự trong chuỗi**
->> ```java
->> Character.isLowerCase(s.charAt(i));   // Kiểm tra ký tự có phải chữ thường không
->> Character.isUpperCase(s.charAt(i));   // Kiểm tra ký tự có phải chữ hoa không
->> Character.isAlphabetic(s.charAt(i));  // Kiểm tra ký tự có phải chữ cái không
->> Character.isDigit(s.charAt(i));       // Kiểm tra ký tự có phải chữ số không
->> ```
->>
+> - Chú ý: String trong Java một khi đã khai báo bạn không thể thay đổi nó, vì thế các hàm của String đều trả về 1 xâu kí tự mới sau khi áp dụng các hàm
+> ### **lenght()**
+>> Dùng để lấy độ dài của chuỗi (Trả về số kí tự trong xâu)
+>>  ```java
+>>  public class Main {
+>>    public static void main(String[] args) {
+>>        String s = "Hoc lap trinh Java";
+>>        System.out.println(s.length());
+>>    }
+>>  }
+>>  ```
+>>  Output:
+>>  ```
+>>  18
+>>  ```
+>   
+> ### **charAt()**
+>> String tương tự như mảng, chỉ số bắt đầu từ 0, hàm charAt(index) trả về kí tự ở chỉ số index (Lấy ký tự tại vị trí index của chuỗi)
+>>  ```java
+>>  public class Main {
+>>    public static void main(String[] args) {
+>>        String s = "Hoc lap trinh Java";
+>>        for (int i = 0; i < s.length(); i++) {
+>>          System.out.print(s.charAt(i) + " ");
+>>        }
+>>    }
+>>  }
+>>  ```
+>>  Output:
+>>  ```
+>>  2 8 t e c h  j a v a
+>>  ```
+>
 > ### **2.3. Chuyển đổi chữ hoa - chữ thường**
 >> ```java
 >> Character.toLowerCase(s.charAt(i));  // Chuyển ký tự thành chữ thường
