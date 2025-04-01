@@ -99,7 +99,7 @@
 >>  ```java
 >>  public class Main {
 >>    public static void main(String[] args) {
->>        String s = "Hoc lap trinh Java";
+>>        String s = "Java Core";
 >>        for (int i = 0; i < s.length(); i++) {
 >>          System.out.print(s.charAt(i) + " ");
 >>        }
@@ -108,7 +108,7 @@
 >>  ```
 >>  Output:
 >>  ```
->>  2 8 t e c h  j a v a
+>>  J a v a C o r e
 >>  ```
 >
 > ### **Character.isLowerCase(char c)**
@@ -281,7 +281,7 @@
 >>  colection java
 >>  ```
 >
->> ### **compareTo()**
+> ### **compareTo()**
 >>  So sánh 2 xâu theo thứ tự từ điển, nếu 2 xâu bằng nhau trả về 0, trả về số âm nếu xâu hiện tại nhỏ hơn xâu cần so sánh, ngược lại trả về số dương.
 >>  ```java
 >> public class Main {
@@ -297,7 +297,7 @@
 >>  32
 >>  ```
 >
->> ### **compareToIgnoreCase()**
+> ### **compareToIgnoreCase()**
 >>  Bỏ qua in hoa in thường khi so sánh.
 >>  ```java
 >> public class Main {
@@ -313,7 +313,7 @@
 >>  0
 >>  ```
 >
->> ### **substring() & subSequence()**
+> ### **substring() & subSequence()**
 >>  Dùng để cắt một chuỗi con từ begin_index đến end_index - 1 (nếu có 2 tham số truyền vào), cắt một chuỗi con từ begin_index đến hết chuối (nếu có 1 tham số truyền vào)
 >>  ```java
 >>  public class Main {
